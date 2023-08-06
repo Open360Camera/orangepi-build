@@ -27,11 +27,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Checkout repository
-      uses: "actions/checkout@something"
 
     - name: Build kernel packages
-      run: ls -la && ./build.sh  BOARD=orangepi5 BRANCH=legacy BUILD_OPT=kernel KERNEL_CONFIGURE=no
+      run: ls -la && cd orangepi-build && ./build.sh  BOARD=orangepi5 BRANCH=legacy BUILD_OPT=kernel KERNEL_CONFIGURE=no
 
     - name: Copy dpkgs to resulting directory
       run: mkdir -p artifacts && mv output/debs/* artifacts/
