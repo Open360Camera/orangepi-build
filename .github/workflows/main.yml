@@ -21,15 +21,17 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
-  greet:
+  build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
+    - name: Checkout repository
+      uses: "actions/checkout@something"
+
     - name: Build kernel packages
-      run: ./build.sh  BOARD=orangepi5 BRANCH=legacy BUILD_OPT=kernel KERNEL_CONFIGURE=no
+      run: ls -la && ./build.sh  BOARD=orangepi5 BRANCH=legacy BUILD_OPT=kernel KERNEL_CONFIGURE=no
 
     - name: Copy dpkgs to resulting directory
       run: mkdir -p artifacts && mv output/debs/* artifacts/
