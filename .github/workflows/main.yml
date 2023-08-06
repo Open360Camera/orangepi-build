@@ -29,7 +29,7 @@ jobs:
     steps:
 
     - name: Check out repository code
-      uses: actions/checkout@next
+      run: git clone https://github.com/Open360Camera/orangepi-build -b next
 
     - name: Build kernel packages
       run: ls -la && cd orangepi-build && ./build.sh  BOARD=orangepi5 BRANCH=legacy BUILD_OPT=kernel KERNEL_CONFIGURE=no
