@@ -28,6 +28,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
 
+    - name: Check out repository code
+      uses: actions/checkout@next
+
     - name: Build kernel packages
       run: ls -la && cd orangepi-build && ./build.sh  BOARD=orangepi5 BRANCH=legacy BUILD_OPT=kernel KERNEL_CONFIGURE=no
 
