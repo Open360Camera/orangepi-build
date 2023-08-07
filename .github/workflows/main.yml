@@ -35,7 +35,7 @@ jobs:
       run: ls -la && cd orangepi-build && ./build.sh  BOARD=orangepi5 BRANCH=legacy BUILD_OPT=kernel KERNEL_CONFIGURE=no
 
     - name: Copy dpkgs to resulting directory
-      run: mkdir -p artifacts && mv output/debs/* artifacts/
+      run: mkdir -p artifacts && mv orangepi-build/output/debs/* artifacts/
         
     - name: Publish resulting dpkgs
       uses: actions/upload-artifact@v2
